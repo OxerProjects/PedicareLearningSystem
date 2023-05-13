@@ -7,13 +7,24 @@
     <title>התחברות</title>
     <link rel="stylesheet" href="/css/Login.css">
 </head>
-<body>
+<body dir="rtl">
     <div class="logInBox">
-        <h1>התחברות למערכת</h1>
-        <div class="Inputtitle">שם משתמש:</div>
-        <input type="username" name="username" class="input" id="username" autofocus placeholder="הזן שם משתמש" required>
-        <div class="Inputtitle">סיסמה:</div>
-        <input type="password" name="password" class="password" id="password" autofocus placeholder="הזן סיסמה" required>
-    </div>
+        <form class="form" id="logIn">
+            <h1 class="title">התחברות למערכת</h1>
+            <div class="error"></div>
+            <div class="inputBox">
+                <label for="usermame" class="label" >שם משתמש:</label>
+                <input class="input" id="usermame" type="text" required autofocus placeholder="הזן שם משתמש">   
+            </div>
+            <div class="inputBox">
+                <label for="password"  class="label" >סיסמה:</label>
+                <input class="input" id="password" type="password" required autofocus placeholder="הזן סיסמה">   
+            </div>
+            <button class="submitButton" type="submit">התחבר</button>
+            <p class="links">
+                <a href="#" class="forgotPassword">שכחתי סיסמה?</a>
+            </p>
+        </form>
+    </div>   
 </body>
 </html>

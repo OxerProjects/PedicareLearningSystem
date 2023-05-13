@@ -6,8 +6,12 @@ body {
     --color-white: #fff;
     --color-grey-dark: #bebebe;
     --color-grey: #eceaea;
+    --border-radius: 15px;
+    --font-family: 'Open Sans', sans-serif;
     font-family: 'Open Sans', sans-serif;
     background-color: var(--color-white);
+    margin: 0;
+    padding: 0;
 }
 
 .Logo {

@@ -10,11 +10,16 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
+app.set('view options', { layout: false });
 
 // Log In ---------------------------------------------------------------
 
 app.get('/login', (req, res) => {
     res.render('Login')
+})
+
+app.get('/mycourses', (req, res) => {
+    res.render('mycourses', {layout: 'layouts/studentLayout'})
 })
 
 
