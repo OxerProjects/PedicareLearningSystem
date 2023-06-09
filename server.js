@@ -36,6 +36,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
+// Routers -------------------------`-------------------------------------
+app.use('/', StudentRouter)
 // Log In ---------------------------------------------------------------
 
 app.get('/adduser', (req, res) => {
@@ -64,14 +66,12 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/mycourses',
+    successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-app.get('/mycourses', (req, res) => {
-    res.render('mycourses', {layout: 'layouts/studentLayout'})
-})
+// Chack Atintication ---------------------------------------------------
 
 
 // Port and DetaBase ----------------------------------------------------

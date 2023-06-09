@@ -6,4 +6,6 @@ body {
 .courses {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    padding-left: 15px;
 }
