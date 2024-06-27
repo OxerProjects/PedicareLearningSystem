@@ -2,15 +2,15 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.redirect(`${req.user.id}/mycourses`)
+    res.redirect(`/mycourses`)
 })
 
-router.get('/:id/mycourses', (req, res) => {
+router.get('/mycourses', (req, res) => {
     
-    res.render('mycourses', {layout: 'layouts/studentLayout', name: req.user.name, id: req.user.id})
+    res.render('mycourses', {layout: 'layouts/studentLayout', name: req.user.name})
 })
 
-router.get('/:id/grades', (req, res) => {
+router.get('/grades', (req, res) => {
     res.render('grades', {layout: 'layouts/studentLayout', name: req.user.name, id: req.user.id})
 })
 

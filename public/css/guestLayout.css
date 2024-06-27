@@ -1,48 +1,71 @@
 body {
-    display: grid;
-    grid-template-columns: 240px 1fr;
     height: 100%;
     width: 100%;
-    gap: 20px;
     overflow: hidden
 }
 
-.sidebar {
-    height: 100vh;
-    border-left: solid 1px #dadada;
-    display: grid;
-    grid-template-rows: 1fr 6fr min-content;
-    min-width: 240px;
-    right: 0;
-    top: 0;
+.header {
+    width: 100%;
+    border-bottom: solid 1px #dadada;
+    min-height: 90px;
     padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    right: 0;
 }
 
 .Logo {
     height: 100%;
     position: unset;
-    margin-top: 10px;
-    margin-right: 10px;
     cursor: pointer;
 } 
 
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;   
+    gap: 35px;
+}
+
 .nav {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.navItem {
+    color: black;
+    text-decoration: none;
+}
+
+.navItem:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .navOption {
-    background-color: white;
-    width: 100%;
+    background-color: var( --color-primary);
+    color: white;
+    width: 150px;
     height: 50px;
     vertical-align: middle;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     gap: 15px;
     box-sizing: border-box;
     padding: 20px;
-    margin-bottom: 5px;
     border-radius: 15px;
 }
 
@@ -79,6 +102,10 @@ body {
 
 .bodyScreen {
     max-height: 100vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    margin-top: 120px;
 }
 
 

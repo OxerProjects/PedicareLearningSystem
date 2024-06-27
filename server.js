@@ -1,12 +1,20 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+//Requires:
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const StudentRouter = require('./routes/student')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const mongoose = require('mongoose');
+
+const IndexRouter = require('./routes/index')
+const StudentRouter = require('./routes/student')
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -17,8 +25,7 @@ initializePassport(
 
 const users = []
 
-// App Settings ---------------------------------------------------------
-
+// App Settings:
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
@@ -36,10 +43,30 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
-// Routers -------------------------`-------------------------------------
-app.use('/', StudentRouter)
-// Log In ---------------------------------------------------------------
+//DataBase:
+const mongoURI = process.env.MONGO_URI;
+if (!mongoURI) {
+    console.error('MongoDB URI is not defined. Please set the MONGO_URI environment variable.');
+    process.exit(1);
+}
 
+mongoose.connect(process.env.DATABASE_URL, {
+useNewUrlParser: true, useUnifiedTopology: true})
+
+const db = mongoose.connection
+db.on('error', error => {
+    console.error(error)   
+})
+
+db.once('open', () => {
+    console.log("DATABASE IS CONNECTED")   
+})
+
+// Routers:
+app.use('/', IndexRouter)
+app.use('/students', StudentRouter)
+
+// Log In:
 app.get('/adduser', (req, res) => {
     res.render('adduser')
 })
@@ -66,14 +93,12 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/students/mycourses',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-// Chack Atintication ---------------------------------------------------
+// Chack Atintication:
 
-
-// Port and DetaBase ----------------------------------------------------
-
+// Port and DetaBase:
 app.listen(process.env.PORT || 3000)

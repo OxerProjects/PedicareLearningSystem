@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedicare Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="Monitor.css">
+</head>
+<body>
+    <div class="control">
+        <div class="logo-box">
+            <img src="logo.png" class="logo">
+            <h1 class="logo-title">PedicareMonitor</h1>
+        </div>
+        <div class="top-nav">
+            <div class="nav-item">Defibrillator</div>
+            <div class="nav-item">Pacing</div>
+        </div>
+        <div class="control-panel">
+            <div class="power">
+                <h3 class="power-title">Select Energy</h3>
+                <div class="power-bar">0J</div>
+                <div class="power-control">
+                    <span class="material-symbols-outlined power-button">expand_less</span>
+                    <span class="material-symbols-outlined power-button">expand_more</span>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <button class="control-button" id="charge">CHARGE</button>
+                <button class="control-button" id="shock">SHOCK</button>
+                <button class="control-button" id="disarm">DISARM</button>
+                <button class="control-button" id="sync">SYNC</button>
+            </div>
+        </div>
+    </div>
+    <div class="screen">
+        <div class="akg" id="akg1">
+            <div class="show-bar" id="show"></div>
+            <span class="dot" id="firstDot"></span>
+        </div>
+        <div class="akg" id="akg1"></div>
+        <div class="akg" id="akg1"></div>
+        <div class="akg" id="akg1"></div>
+        <div class="akg" id="akg1"></div>
+    </div>
+    <div class="data">
+        <div class="data-1" id="data1">
+            <div class="data-type"><p>HR</p></div>
+            <h3>000</h3>
+        </div>
+        <div class="data-1" id="data2">
+            <div class="data-type"><p>SpO2</p></div>
+            <h3>000</h3>
+        </div>
+        <div class="data-1" id="data3">
+            <div class="data-type"><p>ABP</p></div>
+            <h3>000</h3>
+        </div>
+        <div class="data-1" id="data4">
+            <div class="data-type"><p>etCO2</p></div>
+            <h3>000</h3>
+        </div>
+        <div class="data-1" id="data5">
+            <div class="data-type"><p>RR</p></div>
+            <h3>00</h3>
+        </div>
+    </div>
+    <div class="downbar">
+        <div class="bottom-nav">
+            <div class="nav-item" id="defibPanel">Defib Panel</div>
+            <div class="nav-item" id="defibRhythm">Defib Rhythm</div>
+            <div class="nav-item" id="startNIBP">Start NIBP</div>
+            <div class="nav-item" id="setAlarms">Set Alarms</div>
+            <div class="nav-item" id="Mute">Mute Alarms</div>
+            <div class="nav-item" id="Vitals">Vitals</div>
+            <div class="nav-item" id="Menu"><span class="material-symbols-outlined">menu</span></div>
+        </div>
+    </div>
+    <script src="Monitor.js"></script>
+</body>
+</html>

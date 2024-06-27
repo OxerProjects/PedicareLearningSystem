@@ -20,6 +20,8 @@ body {
     right: 20px;
     margin: 0;
     font-size: 15px;
+    cursor: pointer;
+
 }
 
 .LogoText {
