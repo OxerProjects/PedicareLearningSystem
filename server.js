@@ -44,23 +44,19 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 //DataBase:
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.DATABASE_URL;
 if (!mongoURI) {
     console.error('MongoDB URI is not defined. Please set the MONGO_URI environment variable.');
     process.exit(1);
 }
 
-mongoose.connect(process.env.DATABASE_URL, {
-useNewUrlParser: true, useUnifiedTopology: true})
-
-const db = mongoose.connection
-db.on('error', error => {
-    console.error(error)   
-})
-
-db.once('open', () => {
-    console.log("DATABASE IS CONNECTED")   
-})
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch((err) => {
+    console.error('MongoDB connection error:', err);
+  });
 
 // Routers:
 app.use('/', IndexRouter)
